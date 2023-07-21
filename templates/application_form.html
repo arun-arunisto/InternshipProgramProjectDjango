@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %} Application Form {% endblock %}
+{% block content %}
+<center>
+    <div class="card w-75 mt-3" style="border: none;">
+        <h2 class="card-title">Application Form</h2>
+        <hr>
+        <div class="card-body">
+            <form method="post" action="{% url 'application_form' %}">
+                <div class="row gt-3 mb-3">
+                    <div class="col-md-6 mb-3">
+                        <label for="fullname" class="form-label">Fullname</label>
+                        <input type="text" class="form-control" id="fullname" name="name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="dob" class="form-label">D.O.B</label>
+                        <input type="date" class="form-control" id="dob" name="dob" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="phone" class="form-label">Mobile No.</label>
+                        <input type="text" id="phone" class="form-control" name="phone" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email Id</label>
+                        <input type="email" id="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="qualification" class="form-label">Qualify your last degree</label>
+                        <input type="text" id="qualification" class="form-control" name="qualification" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="photo" class="form-label">Photo</label>
+                        <input type="file" id="photo" class="form-control" name="photo" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" name="address" id="address" required></textarea>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="objective" class="form-label">Objective</label>
+                        <textarea class="form-control" name="objective" id="objective" required></textarea>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <a href="{% url 'home' %}" class="btn btn-danger">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</center>
+{% endblock %}

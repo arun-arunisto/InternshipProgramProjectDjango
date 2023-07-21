@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Home Page {% endblock %}
+{% block content %}
+<div class="card mt-3" style="border: none;">
+    <div class="card-body">
+        <div class="row mt-3">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Application Form</h5>
+                        <p class="card-text">Application form for the candidates who wants to join in our Internship Program</p>
+                        <a href="{% url 'application_form' %}" class="btn btn-success">Application Form</a>
+                     </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Application Status</h5>
+                        <p class="card-text">Application status of the candidate for the Internship Program</p>
+                        <a href="{% url 'application_status' %}" class="btn btn-danger">Application Status</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Candidate Login</h5>
+                        <p class="card-text">Login to apply/view the Application for Internship Program</p>
+                        <a href="{% url 'candidate_login' %}" class="btn btn-primary">Candidate Login</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Candidate Signup</h5>
+                      <p class="card-text">Signup to register as a candidate for the Internship Program</p>
+                      <a href="{% url 'candidate_signup' %}" class="btn btn-secondary">Candidate Signup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

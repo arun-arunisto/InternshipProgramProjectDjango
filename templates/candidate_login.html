@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Candidate Login {% endblock %}
+{% block content %}
+<center>
+  <div class="card w-50 mt-3" style="border: none;">
+    <h2 class="card-title">Candidate Login</h2>
+    <hr>
+    <div class="card-body">
+      <div class="row gt-3 mt-3">
+        <form method="post" action="{% url 'candidate_login' %}">
+          <div class="col-md-12 mb-3">
+            <input type="text" class="form-control" name="username" placeholder="username" required>
+          </div>
+          <div class="col-md-12 mb-3">
+            <input type="password" class="form-control" name="password" placeholder="password" required>
+          </div>
+          <div class="col-md-12 mb-3">
+            <input type="submit" class="btn btn-primary w-75" value="Login">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card-footer">
+      <p>If you don't have account, <a href="{% url 'candidate_signup' %}">Signup</a> here!</p>
+    </div>
+  </div>
+</center>
+{% endblock %}
