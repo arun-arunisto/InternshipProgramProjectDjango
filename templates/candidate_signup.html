@@ -4,10 +4,15 @@
 <center>
   <div class="card w-50 mt-3" style="border:none;">
     <h2 class="card-title">Signup Form</h2>
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+      <p style="color: red;">{{message}}</p>
+    {% endif %}
+    {% endfor %}
     <hr>
     <div class="card-body mt-3">
       <div class="row gt-3 mb-3">
-        <form method="post" action="#">
+        <form method="post" action="/candidate_signup/">
           <div class="col-md-12 mb-3">
             <input type="text" class="form-control" name="username" placeholder="username" required>
           </div>
@@ -18,9 +23,7 @@
             <input type="password" class="form-control" name="password" placeholder="password" required>
           </div>
           <div class="col-md-12 mb-3">
-            <input type="password" class="form-control" name="confirm" placeholder="confirm password" required>
-          </div>
-          <div class="col-md-12 mb-3">
+            {% csrf_token %}
             <input type="submit" class="btn btn-primary w-75" value="Register">
           </div>
         </form>

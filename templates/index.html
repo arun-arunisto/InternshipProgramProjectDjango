@@ -4,6 +4,7 @@
 <div class="card mt-3" style="border: none;">
     <div class="card-body">
         <div class="row mt-3">
+            {% if user.is_authenticated %}
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
@@ -22,6 +23,7 @@
                     </div>
                 </div>
             </div>
+            {% else %}
             <div class="col-sm-6 mt-3">
                 <div class="card">
                     <div class="card-body">
@@ -40,6 +42,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

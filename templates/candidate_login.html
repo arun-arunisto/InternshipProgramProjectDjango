@@ -4,6 +4,13 @@
 <center>
   <div class="card w-50 mt-3" style="border: none;">
     <h2 class="card-title">Candidate Login</h2>
+    {% for message in messages %}
+    {% if message.tags == 'info' %}
+        <p style="color: green;">{{message}}</p>
+    {% else %}
+      <p style="color:red;">{{message}}</p>
+    {% endif %}
+    {% endfor %}
     <hr>
     <div class="card-body">
       <div class="row gt-3 mt-3">
@@ -15,6 +22,7 @@
             <input type="password" class="form-control" name="password" placeholder="password" required>
           </div>
           <div class="col-md-12 mb-3">
+            {% csrf_token %}
             <input type="submit" class="btn btn-primary w-75" value="Login">
           </div>
         </form>

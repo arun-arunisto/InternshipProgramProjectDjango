@@ -13,10 +13,12 @@
 <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">Students Internship Program</a>
+        {% if user.is_authenticated %}
         <div class="nav-brand">
-            <a class="btn btn-secondary" href="">Home</a>
-            <a class="btn btn-danger" href="">Logout</a>
+            <a class="btn btn-secondary" href="{% url 'home' %}">Home</a>
+            <a class="btn btn-danger" href="{% url 'candidate_logout' %}">Logout</a>
         </div>
+        {% endif %}
     </div>
 </nav>
 {% block content %}
