@@ -35,7 +35,6 @@ def candidate_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.info(request, "Login Successfully!!")
             return redirect('home')
         messages.error(request, "Email/Password incorrect!!")
     return render(request, "candidate_login.html")
@@ -45,9 +44,26 @@ def application_form(request):
     return render(request, "application_form.html")
 
 @login_required
-def application_status(request):
-    return render(request, "application_status.html")
+def candidate_profile(request, username):
+    candidate = User.objects.get(username=username)
+    return render(request, "candidate_profile.html", {"candidate":candidate})
 
+@login_required
+def change_password(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        old_password = request.POST["old_password"]
+        user = authenticate(username=username, password=old_password)
+        if user is not None:
+            u = User.objects.get(username=username)
+            u.set_password(request.POST["new_password"])
+            u.save()
+            messages.info(request, "Password Changed Successfully!")
+            return redirect('candidate_login')
+        else:
+            messages.error(request, "Username/Password incorrect!")
+            return redirect('candidate_login')
+    return render(request, "change_password.html")
 @login_required
 def candidate_logout(request):
     logout(request)

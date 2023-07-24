@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Profile Page {% endblock %}
+{% block headtags %}
+{% endblock %}
+{% block content %}
+<div class="card mt-3 text-center" style="border: none;">
+    <h2 class="card-title">Candidate Profile</h2>
+    <center>
+        <div class="card-body w-50">
+            <div class="mb-3 w-30">
+                <img src="{% static 'images/sample_img.jpg' %}" width="120" height="120" style="border-radius: 50%;">
+            </div>
+            <div class="row gt-3 mb-3">
+                <div class="col-md-12 mb-3">
+                    <input type="text" class="form-control" name="username" value="{{candidate.username}}" readonly>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <input type="email" class="form-control" name="email" value="{{candidate.email}}" readonly>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <a href="{% url 'change_password' %}" class="btn btn-danger w-50">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
+{% endblock %}
