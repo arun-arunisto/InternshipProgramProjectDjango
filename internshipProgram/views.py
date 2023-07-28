@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .models import Applicants
 
 # Create your views here.
 def home(request):
@@ -41,6 +42,25 @@ def candidate_login(request):
 
 @login_required
 def application_form(request):
+    if request.method == 'POST':
+        try:
+            name = request.POST['name']
+            dob = request.POST['dob']
+            phone = request.POST['phone']
+            mail = request.POST['email']
+            qualification = request.POST['qualification']
+            photo = request.FILES.get('photo')
+            address = request.POST["address"]
+            objective = request.POST["objective"]
+            applicants = Applicants(name=name, dob=dob, mobile=phone,
+                                    mail=mail, qualification=qualification,
+                                    photo=photo, address=address, objective=objective)
+            applicants.save()
+            messages.info(request,"Applied Successfully!")
+            return redirect('home')
+        except Exception as e:
+            print("Error :",e)
+            messages.error(request, "Something Went Wrong!!")
     return render(request, "application_form.html")
 
 @login_required

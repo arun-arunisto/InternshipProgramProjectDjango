@@ -4,9 +4,14 @@
 <center>
     <div class="card w-75 mt-3" style="border: none;">
         <h2 class="card-title">Application Form</h2>
+        {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <p style="color:red">{{message}}</p>
+        {% endif %}
+        {% endfor %}
         <hr>
         <div class="card-body">
-            <form method="post" action="{% url 'application_form' %}">
+            <form method="post" enctype="multipart/form-data" action="{% url 'application_form' %}">
                 <div class="row gt-3 mb-3">
                     <div class="col-md-6 mb-3">
                         <label for="fullname" class="form-label">Fullname</label>
@@ -41,6 +46,7 @@
                         <textarea class="form-control" name="objective" id="objective" required></textarea>
                     </div>
                     <div class="col-md-12 mb-3">
+                        {% csrf_token %}
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="{% url 'home' %}" class="btn btn-danger">Back</a>
                     </div>
