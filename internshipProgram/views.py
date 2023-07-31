@@ -42,6 +42,7 @@ def candidate_login(request):
 
 @login_required
 def application_form(request):
+
     if request.method == 'POST':
         try:
             name = request.POST['name']
@@ -52,7 +53,9 @@ def application_form(request):
             photo = request.FILES.get('photo')
             address = request.POST["address"]
             objective = request.POST["objective"]
-            applicants = Applicants(name=name, dob=dob, mobile=phone,
+            #getting the current logged-in user
+            user = request.user
+            applicants = Applicants(user=user,name=name, dob=dob, mobile=phone,
                                     mail=mail, qualification=qualification,
                                     photo=photo, address=address, objective=objective)
             applicants.save()

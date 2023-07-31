@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% block title %} Application Form {% endblock %}
 {% block content %}
+{% if user.is_submitted %}
+<center>
+    <div class="card w-75 mt-3">
+        <h2 class="card-title">Already Applied</h2>
+    </div>
+</center>
+{% else %}
 <center>
     <div class="card w-75 mt-3" style="border: none;">
         <h2 class="card-title">Application Form</h2>
@@ -55,4 +62,5 @@
         </div>
     </div>
 </center>
+{% endif %}
 {% endblock %}

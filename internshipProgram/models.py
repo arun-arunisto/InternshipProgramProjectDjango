@@ -1,7 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
 class Applicants(models.Model):
+    user = models.ForeignKey(User, on_delete= models.CASCADE)
     name = models.CharField(max_length=100, unique=True)
     dob = models.CharField(max_length=100)
     mobile = models.CharField(max_length=100)
@@ -14,3 +16,5 @@ class Applicants(models.Model):
     def __str__(self):
         return self.name
 
+#adding is_submitted() method within User model
+User.add_to_class("is_submitted", lambda user:Applicants.objects.filter(user=user).exists())
