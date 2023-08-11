@@ -18,5 +18,6 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('internshipProgram.urls'))
+    path('', include('internshipProgram.urls')),
+    path('', include('administration.urls'))
 ]

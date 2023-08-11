@@ -1,0 +1,25 @@
+{% extends 'administrative_base.html' %}
+{% block title %} Administrative Home {% endblock %}
+{% block content %}
+<center>
+    <div class="card w-50 mt-3" style="border:none;">
+        <h2 class="card-title">Administrative Login Form</h2>
+        <hr>
+        <div class="card-body mt-3">
+            <div class="row gt-3 mb-3">
+                <form method="post" action="#">
+                    <div class="col-md-12 mb-3">
+                        <input type="text" name="username" class="form-control" placeholder="username" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <input type="password" name="password" class="form-control" placeholder="password" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <input type="submit" class="btn btn-primary" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock %}

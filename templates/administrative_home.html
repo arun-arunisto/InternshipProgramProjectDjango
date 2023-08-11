@@ -1,0 +1,48 @@
+{% extends 'administrative_base.html' %}
+{% block title %} Administrative Home {% endblock %}
+{% block content %}
+<div class="card mt-3" style="border: none;">
+    <div class="card-body">
+        <div class="row mt-3">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Candidates List</h5>
+                        <p class="card-text">Candidates who applied for the internship program</p>
+                        <a href="/candidates_list" class="btn btn-primary">Candidates List</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Administrative Profile</h5>
+                        <p class="card-text">Administrative user's details like name, email, id, etc</p>
+                        <a href="/administrative_profile" class="btn btn-secondary">Administrative Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Selected Candidates</h5>
+                        <p class="card-text">Candidates who selected for the internship program</p>
+                        <a href="/selected_candidates" class="btn btn-success">Selected Candidates</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Rejected Candidates</h5>
+                        <p class="card-text">Candidates who rejected from the internship program</p>
+                        <a href="/rejected_candidates" class="btn btn-danger">Rejected Candidates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
