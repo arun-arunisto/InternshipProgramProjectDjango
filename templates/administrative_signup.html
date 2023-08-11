@@ -1,0 +1,31 @@
+{% extends 'administrative_base.html' %}
+{% block title %} Administrative Signup {% endblock %}
+{% block content %}
+<center>
+    <div class="card w-50 mt-3" style="border: none;">
+        <h2 class="card-title">Administrative Signup</h2>
+        <hr>
+        <div class="card-body mt-3">
+            <div class="row gt-3 mb-3">
+                <form method="post" action="#">
+                    <div class="col-md-12 mb-3">
+                        <input type="text" class="form-control" name="username" placeholder="username" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="email" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <input type="password" class="form-control" name="password" placeholder="password" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <input type="text" class="form-control" name="administrativeId" placeholder="administrative id" required>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <input type="submit" class="btn btn-primary" value="Register">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock %}
